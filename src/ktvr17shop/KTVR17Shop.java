@@ -9,6 +9,7 @@ import entity.Customer;
 import entity.Product;
 import entity.Purchase;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 /**
@@ -17,22 +18,24 @@ import java.util.GregorianCalendar;
  */
 public class KTVR17Shop {
     public static void main(String[] args) {
-        Product p1 = new Product(1L,"Moloko",50,10);
-        Product p2 = new Product(2L,"Hleb",30,15);
-        Product p3 = new Product(3L,"Kolbasa",130,20);
+        Product p1 = new Product (1L, "Moloko", 50,10);
+        Product p2 = new Product (2L, "Hleb", 30,15);
+        Product p3 = new Product (3L, "Kolbasa", 130,20);
         
-        Customer c1 = new Customer(1L,"Ivan","Ivanov",1000);
-        Customer c2 = new Customer(2L,"Sidor","Sidorov",1000);
-        Customer c3 = new Customer(3L,"Petr","Petrov",1000);
+        Customer c1 = new Customer (1L, "Ivan ", "Ivanov ", 1000);
+        Customer c2 = new Customer (2L, "Sidor ", "Sidorov ", 1000);
+        Customer c3 = new Customer (3L, "Petr ", "Petrov ", 1000);
+        
+        System.out.println("Status p1: "+ p1.toString());
+        System.out.println("Status c1: "+ c1.toString());
         
         Calendar calendar = new GregorianCalendar();
-        Purchase purchase = new Purchase(1L,p1,c1,calendar.getTime(),2);
+        Purchase purchase1 = new Purchase (1L, p1, c1, new Date(), 2 );
         p1.setCount(p1.getCount() - purchase1.getQuantity());
-        c1.setMoney(c1.getCount() - purchase1.getQuantity()*p1.getPrice());
+        c1.setMoney(c1.getMoney() - purchase1.getQuantity()* p1.getPrice());
         
-        System.out.println (purchase.getCustomer().getName() + "" + purchase.getCustomer().getSurname() + "kupil" + purchase.getProduct().getName() + "v kol-vo" + purchase.getCustomer().getMoney()+"tovara");                   
-        
+        System.out.println(purchase1.getCustomer().getName() + " " + purchase1.getCustomer().getSurname()+ "купил " + purchase1.getProduct().getName() + " в качестве " + purchase1.getQuantity() + " штук");
+        System.out.println("Status p1: "+ p1.toString());
+        System.out.println("Status c1: "+ c1.toString());
     }
-    
-        
-}
+    }

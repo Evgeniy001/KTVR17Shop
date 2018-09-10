@@ -5,49 +5,40 @@
  */
 package entity;
 
+import java.util.Objects;
+
 /**
  *
  * @author pupil
  */
 public class Product {
+    private Long Id;
+    private String name;
+    private Integer price;
+    private Integer count;
 
-    public Product(Long id, String name, Integer price, Integer count) {
-        this.id = id;
+    public Product() {
+    }
+
+    public Product(Long Id, String name,Integer price, Integer count) {
+        this.Id = Id;
         this.name = name;
         this.price = price;
         this.count = count;
-    }
-    Long id;//создаем поля
-    String name;
-    Integer price;
-    Integer count;
-
-    public Long getId() {
-        return id;
+        
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
+   
+    public void setId(Long Id) {
+        this.Id = Id;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public Integer getPrice() {
-        return price;
-    }
-
     public void setPrice(Integer price) {
         this.price = price;
-    }
-
-    public Integer getCount() {
-        return count;
     }
 
     public void setCount(Integer count) {
@@ -55,18 +46,64 @@ public class Product {
     }
 
     @Override
-    public String toString() {
-        return "product{" + "id=" + id + ", name=" + name + ", price=" + price + ", count=" + count + '}';
+    public int hashCode() {
+        int hash = 7;
+        hash = 97 * hash + Objects.hashCode(this.Id);
+        hash = 97 * hash + Objects.hashCode(this.name);
+        hash = 97 * hash + Objects.hashCode(this.price);
+        hash = 97 * hash + Objects.hashCode(this.count);
+        return hash;
     }
-    
-public Product(){
-    }    
-   
 
 
 
-    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Product other = (Product) obj;
+        if (!Objects.equals(this.Id, other.Id)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" + "Id=" + Id + ", name=" + name + ", price=" + price + ", count=" + count + '}';
+    }
+
+    public Integer getCount() {
+        return count;
+    }
+
+    public Long getId() {
+        return Id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setProductName(String nextLine) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setID(String nextLine) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+
+
 }
-
-
-

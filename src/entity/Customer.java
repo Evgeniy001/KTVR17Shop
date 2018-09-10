@@ -5,49 +5,91 @@
  */
 package entity;
 
+import java.util.Objects;
+import java.util.logging.Logger;
+
 /**
  *
  * @author pupil
  */
 public class Customer {
+    private Long Id;
+    private String name; 
+    private String surname;
+    private Integer money;
 
-    public Customer(Long id, String name, String surname, Integer money) {
-        this.id = id;
+    public Customer() {
+    }
+    public Customer(Long Id, String name, String surname, Integer money) {
+        this.Id = Id;
         this.name = name;
         this.surname = surname;
         this.money = money;
     }
-    Long id;//создаем поля
-    String name;
-    String surname;
-    Integer money;
 
     public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+        return Id;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getSurname() {
         return surname;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
     public Integer getMoney() {
         return money;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 79 * hash + Objects.hashCode(this.Id);
+        hash = 79 * hash + Objects.hashCode(this.name);
+        hash = 79 * hash + Objects.hashCode(this.surname);
+        hash = 79 * hash + Objects.hashCode(this.money);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Customer other = (Customer) obj;
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (!Objects.equals(this.surname, other.surname)) {
+            return false;
+        }
+        if (!Objects.equals(this.Id, other.Id)) {
+            return false;
+        }
+        if (!Objects.equals(this.money, other.money)) {
+            return false;
+        }
+        return true;
+    }
+
+    public void setId(Long Id) {
+        this.Id = Id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public void setMoney(Integer money) {
@@ -56,6 +98,21 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "customer{" + "id=" + id + ", name=" + name + ", surname=" + surname + ", money=" + money + '}';
+        return "Customer{" + "Id=" + Id + ", name=" + name + ", surname=" + surname + ", money=" + money + '}';
     }
+
+    public void setCustomerName(String nextLine) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setID(String nextLine) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setCustomerSurname(String nextLine) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+
+    
 }
