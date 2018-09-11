@@ -7,8 +7,10 @@ package ktvr17shop;
 
 import classes.CustomerCreator;
 import classes.ProductCreator;
+import classes.PurchaseCreator;
 import entity.Customer;
 import entity.Product;
+import entity.Purchase;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -19,7 +21,8 @@ import java.util.Scanner;
  */
 public class App {
   private List <Product> products = new ArrayList <>();
-  private List <Customer> customera = new ArrayList <>();
+  private List <Customer> customers = new ArrayList <>();
+  private List <Purchase>purchases = new ArrayList<>();
     public void run(){
         String repeat = "r";
         Scanner scanner = new Scanner(System.in);
@@ -39,14 +42,21 @@ public class App {
                     break;
                 case "1":
                     ProductCreator productCreator = new ProductCreator();
-                    product.add(productCreator.returnNewProduct());  
+                    products.add(productCreator.returnNewProduct());  
                     System.out.println("товар добавлен!");
                     break;
                 case "2":
                     CustomerCreator customerCreator = new CustomerCreator();
-                    customer.add(customerCreator.returnNewCustomer());  
+                    customers.add(customerCreator.returnNewCustomer());  
                     System.out.println("товар добавлен!");
                     break;
+                case "3":
+                    PurchaseCreator purchaseCreator = new PurchaseCreator();
+                    purchases.add(purchaseCreator.returnNewPurchase());
+                    System.out.println("товар продан!");
+                    break;
+                    
+                    
         }
         
     }
