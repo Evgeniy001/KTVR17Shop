@@ -5,6 +5,8 @@
  */
 package ktvr17shop;
 
+import Interface.ConsoleInterface;
+import Interface.Manageable;
 import classes.CustomerCreator;
 import classes.ProductCreator;
 import classes.PurchaseCreator;
@@ -23,6 +25,7 @@ public class App {
   private List <Product> products = new ArrayList <>();
   private List <Customer> customers = new ArrayList <>();
   private List <Purchase>purchases = new ArrayList<>();
+  private Manageable manager = new ConsoleInterface();
     public void run(){
         String repeat = "r";
         Scanner scanner = new Scanner(System.in);
@@ -33,7 +36,6 @@ public class App {
             System.out.println("1 - для добавления товара");
             System.out.println("2 - для добавления покупателя");
             System.out.println("3 - для продажи товара");
-            System.out.println("4 - для возврата товара");
             String action = scanner.next();
             
             switch (action) {
@@ -41,23 +43,24 @@ public class App {
                     repeat = "r";
                     break;
                 case "1":
-                    ProductCreator productCreator = new ProductCreator();
-                    products.add(productCreator.returnNewProduct());  
+                    
+                    this.products.add(manager.createProduct());  
                     System.out.println("товар добавлен!");
                     break;
                 case "2":
-                    CustomerCreator customerCreator = new CustomerCreator();
-                    customers.add(customerCreator.returnNewCustomer());  
+                    
+                    this.customers.add(manager.createCustomer());  
                     System.out.println("товар добавлен!");
                     break;
                 case "3":
-                    PurchaseCreator purchaseCreator = new PurchaseCreator();
-                    purchases.add(purchaseCreator.returnNewPurchase());
+                    
+                    this.purchases.add(manager.createPurchase(products, customers));
                     System.out.println("товар продан!");
                     break;
-                    
+                default:System.out.println("vuberity deystviy");
                     
         }
         
-    }
+    }while("r".equals(repeat));
+}
 }

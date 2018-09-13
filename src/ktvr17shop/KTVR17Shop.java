@@ -17,7 +17,7 @@ import java.util.GregorianCalendar;
  * @author pupil
  */
 public class KTVR17Shop {
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         Product p1 = new Product (1L, "Moloko", 50,10);
         Product p2 = new Product (2L, "Hleb", 30,15);
         Product p3 = new Product (3L, "Kolbasa", 130,20);
@@ -34,8 +34,12 @@ public class KTVR17Shop {
         p1.setCount(p1.getCount() - purchase1.getQuantity());
         c1.setMoney(c1.getMoney() - purchase1.getQuantity()* p1.getPrice());
         
-        System.out.println(purchase1.getCustomer().getName() + " " + purchase1.getCustomer().getSurname()+ "купил " + purchase1.getProduct().getName() + " в качестве " + purchase1.getQuantity() + " штук");
+        System.out.println(purchase1.getCustomer().getName() + " " + purchase1.getCustomer().getSurname()+ "пїЅпїЅпїЅпїЅпїЅ " + purchase1.getProduct().getName() + " пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ " + purchase1.getQuantity() + " пїЅпїЅпїЅпїЅ");
         System.out.println("Status p1: "+ p1.toString());
         System.out.println("Status c1: "+ c1.toString());
+    } */
+    public static void main(String[] args) {
+        App app = new App();
+        app.run();
     }
     }
