@@ -8,11 +8,13 @@ package entity;
 import java.util.Date;
 import java.util.Objects;
 import java.util.logging.Logger;
+import javax.persistence.Entity;
 
 /**
  *
  * @author pupil
  */
+@Entity
 public class Purchase {
     private Long id;
     private Product product;

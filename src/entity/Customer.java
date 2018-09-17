@@ -7,11 +7,13 @@ package entity;
 
 import java.util.Objects;
 import java.util.logging.Logger;
+import javax.persistence.Entity;
 
 /**
  *
  * @author pupil
  */
+@Entity
 public class Customer {
     private Long Id;
     private String name; 
