@@ -9,6 +9,7 @@ import Interface.Retentive;
 import entity.Customer;
 import entity.Product;
 import entity.Purchase;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -20,6 +21,9 @@ import javax.persistence.EntityTransaction;
 public class PersistToDatabase implements Retentive {
  
 
+    private final EntityManager em;
+    private final EntityTransaction tx;
+
     @Override
     public void saveCustomer(Customer customer) {
         tx.begin();
@@ -29,17 +33,26 @@ public class PersistToDatabase implements Retentive {
 
     @Override
     public void saveProduct(Product product) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        tx.begin();
+        em.persist(product);
+        tx.commit();
     }
 
     @Override
     public void savePurchase(Purchase purchase) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        tx.begin();
+        em.persist(purchase);
+        tx.commit();
     }
 
     @Override
     public List<Customer> loadCustomer() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try{
+            return em.createQuery("").getResultList();
+            
+        }catch(Exception e){
+            return new ArrayList<Customer>();
+        }
     }
 
     @Override
