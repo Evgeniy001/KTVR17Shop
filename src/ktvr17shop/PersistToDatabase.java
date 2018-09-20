@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package classes;
+package ktvr17shop;
 
 import Interface.Retentive;
 import entity.Customer;
@@ -12,7 +12,9 @@ import entity.Purchase;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 
 /**
  *
@@ -20,9 +22,17 @@ import javax.persistence.EntityTransaction;
  */
 public class PersistToDatabase implements Retentive {
  
-
     private final EntityManager em;
     private final EntityTransaction tx;
+    
+    public PersistToDatabase(){
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("KTVR17ShopPU");
+        em = emf.createEntityManager();
+        tx = em.getTransaction();
+    }
+    
+    
+    
 
     @Override
     public void saveCustomer(Customer customer) {
@@ -48,7 +58,7 @@ public class PersistToDatabase implements Retentive {
     @Override
     public List<Customer> loadCustomer() {
         try{
-            return em.createQuery("").getResultList();
+            return em.createQuery("SELECT c FROM Customer c").getResultList();
             
         }catch(Exception e){
             return new ArrayList<Customer>();
@@ -57,17 +67,27 @@ public class PersistToDatabase implements Retentive {
 
     @Override
     public List<Product> loadProduct() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        try{
+            return em.createQuery("SELECT c FROM Product c").getResultList();
+        }catch(Exception e){
+            return new ArrayList<Product>();
+        }
+        
     }
 
     @Override
     public List<Purchase> loadPurchase() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try{
+            return em.createQuery("SELECT c FROM Purchase c").getResultList();
+        }catch(Exception e){
+            return new ArrayList<Purchase>();
+        }
     }
 
     @Override
     public void freeResources() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       if (em != null) em.close();
     }
     
 }

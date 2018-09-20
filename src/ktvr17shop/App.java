@@ -5,7 +5,6 @@
  */
 package ktvr17shop;
 
-import Interface.ConsoleInterface;
 import Interface.Manageable;
 import classes.CustomerCreator;
 import classes.ProductCreator;
