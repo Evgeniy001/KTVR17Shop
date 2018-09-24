@@ -18,13 +18,23 @@ public class ProductCreator {
         System.out.println("-------добавления товара--------");
         Product product = new Product();
         System.out.println("name producta");
-        product.setProductName(scanner.nextLine());
-        System.out.println("ID producta");
-        product.setID(scanner.nextLine());
+        product.setProductName(scanner.nextLine());  
         System.out.println("price producta");
         product.setPrice(scanner.nextInt());
         System.out.println("count producta");
         product.setCount(scanner.nextInt());
+        
+        System.out.println("Для добавления введите любой символ\nДля отмены наберите -1");
+        String yes = "";
+        yes = scanner.next();
+        if(!"".equals(yes)){
+            System.out.println("----продукт не добавлен----");
+            return null;
+        }else{
+            System.out.println("----продукт добавлен----");
+        
+        //*************************
         return product;
     }
+}
 }

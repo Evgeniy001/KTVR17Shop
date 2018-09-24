@@ -8,6 +8,9 @@ package entity;
 import java.util.Objects;
 import java.util.logging.Logger;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  *
@@ -15,6 +18,8 @@ import javax.persistence.Entity;
  */
 @Entity
 public class Customer {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private Long Id;
     private String name; 
     private String surname;

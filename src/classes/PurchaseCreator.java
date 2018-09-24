@@ -43,6 +43,16 @@ public class PurchaseCreator {
         int quantity = scanner.nextInt();
         Calendar c = new GregorianCalendar();
         Purchase purchase = new Purchase (null,product,customer,c.getTime(),quantity);
+        
+        
+        
+        //******************
+        
+        
+        
+        
+        
+        
         return purchase;
     }
     

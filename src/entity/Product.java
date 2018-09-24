@@ -5,8 +5,13 @@
  */
 package entity;
 
+import static entity.Customer_.Id;
+import static entity.Product_.Id;
 import java.util.Objects;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  *
@@ -14,6 +19,8 @@ import javax.persistence.Entity;
  */
 @Entity
 public class Product {
+     @Id
+     @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private Long Id;
     private String name;
     private Integer price;
@@ -99,13 +106,10 @@ public class Product {
     }
 
     public void setProductName(String nextLine) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       return 
     }
 
-    public void setID(String nextLine) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+   
 
 
 }

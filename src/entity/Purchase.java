@@ -9,6 +9,9 @@ import java.util.Date;
 import java.util.Objects;
 import java.util.logging.Logger;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  *
@@ -16,6 +19,8 @@ import javax.persistence.Entity;
  */
 @Entity
 public class Purchase {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private Long id;
     private Product product;
     private Customer customer;
